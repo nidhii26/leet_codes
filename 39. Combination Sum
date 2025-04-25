@@ -1,0 +1,19 @@
+class Solution {
+    public List<List<Integer>> combinationSum(int[] nums, int k) {
+        List<List<Integer>>li=new ArrayList<>();
+        List<Integer>temp=new ArrayList<>();
+        soln(li,temp,0,nums.length,k,nums);
+        return li;
+    }
+    void soln(List<List<Integer>>li,List<Integer>temp,int i,int n,int k,int []nums){
+        if(i>=n||k<0)return;
+        if(k==0){
+            li.add(new ArrayList<>(temp));
+            return;
+        }
+        temp.add(nums[i]);
+        soln(li,temp,i,n,k-nums[i],nums);
+        temp.remove(temp.size()-1);
+        soln(li,temp,i+1,n,k,nums);
+    }
+}
