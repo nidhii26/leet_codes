@@ -11,7 +11,7 @@ class Solution {
             if (q.getFirst() == i - k) {
                 q.removeFirst();
             }
-            // if window has k elements add to results (first k-1 windows have < k elements because we start from empty window and add 1 element each iteration)
+           
             if (i >= k - 1) {
                 res.add(nums[q.peek()]);
             }
